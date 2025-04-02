@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button class="button" id="start">START</button>
+        <button class="button" id="stop" disabled>STOP</button>
+        <button class="button" id="kill">KILL SWITCH</button>
+        <button class="button" id="home" disabled>HOME</button>
+        <button class="button" id="land" disabled>LAND</button>
+    </div>
+
+    <div class="main-content">
+        <div class="text-column">
+            <div class="text-container">
+                <h2>Отображение состояния систем</h2>
+                <div class="text-box" id="info-text"></div>
+            </div>
+            
+            <div class="text-container">
+                <div class="text-box" id="buildings-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="image-column">
+        <div class="image-container">
+            <img src="image.png" alt="Control Image">
+        </div>
+    </div>
+    <div class="signature">by Obradovich Vlad and FrozJT</div>
+    <script src="script.js"></script>
+</body>
+</html>

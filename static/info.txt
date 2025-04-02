@@ -1,0 +1,2 @@
+Preflight check:____Battery_V:____Battery_%:
+______OK____________16.5__________89

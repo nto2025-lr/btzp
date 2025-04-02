@@ -1,0 +1,134 @@
+:root {
+    --dark-bg: #121212;
+    --darker-bg: #1e1e1e;
+    --sidebar-bg: #1a1a1a;
+    --accent-color: #bb86fc;
+    --accent-hover: #9e6ad6;
+    --text-primary: #e1e1e1;
+    --text-secondary: #a0a0a0;
+    --card-bg: #242424;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+}
+
+.sidebar {
+    width: 220px;
+    background-color: var(--sidebar-bg);
+    padding: 30px 0;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 8px auto;
+    padding: 14px 20px;
+    background-color: transparent;
+    color: var(--text-primary);
+    text-align: left;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: rgba(187, 134, 252, 0.08);
+    color: var(--accent-color);
+    transform: translateX(4px);
+}
+
+.button:active {
+    transform: translateX(4px) scale(0.98);
+}
+
+/* Вид неактивных кнопок */
+.button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    gap: 25px;
+    background-color: var(--darker-bg);
+}
+
+.text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.text-container {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.text-container:hover {
+    transform: translateY(-3px);
+}
+
+.text-container h2 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.text-container p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.image-column {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.image-container {
+    max-width: 800px;
+    margin: auto;
+    max-height: 800px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+
+/* А это подпись моя)*/
+.signature {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 15px;
+    color: #888;
+}
