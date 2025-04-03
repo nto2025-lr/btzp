@@ -112,14 +112,17 @@ body {
     display: flex;
     align-items: flex-start;
     position: relative;
+    background-color: var(--darker-bg);
 }
 
 .image-container {
-    max-width: 800px;
-    margin: auto;
-    max-height: 800px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    transform: scale(0.8);
     border-radius: 12px;
-    overflow: hidden;
+    overflow-x: hidden;  /* Без горизонтальной прокрутки */
+    overflow-y: auto;    /* Вертикальная прокрутка при необходимости */
     box-shadow: var(--shadow);
 }
 

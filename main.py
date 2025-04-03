@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory, render_template, url_for
 import logging
 import subprocess
 import cv2
@@ -9,7 +9,7 @@ app = Flask(__name__, static_folder='static')
 try:
     open('static/image.png')
 except FileNotFoundError:
-    cv2.imwrite('static/image.png', np.ones((1000, 1000, 3), dtype=np.uint8) * 255)
+    cv2.imwrite('static/image.png', np.ones((800, 800, 3), dtype=np.uint8) * 255)
     
 # Отключение спама в консоль
 log = logging.getLogger('werkzeug')
@@ -37,6 +37,12 @@ def serve_static(filename):
 @app.route('/api/state', methods=['GET'])
 def get_state():
     return jsonify(button_state)
+
+@app.route('/foto/<string:filename>')
+def show_image(filename):
+    print(filename)
+    return f'''<img src="{url_for('static', filename=f"{filename}.png")}"
+           alt="здесь">'''
 
 # Получение текста из otchet.txt
 @app.route('/api/buildings_text', methods=['GET'])
@@ -122,15 +128,8 @@ def handle_home():
     button_state["land"] = True
     return jsonify(button_state)
 
-@app.route('/foto/')
-@app.route('/foto/<int:name>')
-def foto_line(name=0):
-    print(name)
-    return  send_from_directory('static', 'foto.html', name_foto=name)
-
-
 if __name__ == "__main__":
     # Запуск сервера через localhost на порте 8888
-    print("Сервер запущен на http://192.168.50.85:8888/")
-    app.run(host='192.168.50.85', port=8888, debug=False)
+    print("Сервер запущен на http://192.168.50.120:8888/")
+    app.run(host='192.168.50.120', port=8888, debug=False)
 
