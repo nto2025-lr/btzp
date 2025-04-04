@@ -1,14 +1,15 @@
+# подключение дополнительных модулей python
 import rospy
 import sys
 import math
 from clover import srv
 from std_srvs.srv import Trigger
 rospy.init_node('cv')
-
+# подключение функций ros
 get_telemetry = rospy.ServiceProxy('get_telemetry', srv.GetTelemetry)
 navigate = rospy.ServiceProxy('navigate', srv.Navigate)
 land = rospy.ServiceProxy('land', Trigger)
-
+# функция полета с ожиданием
 def navigate_wait(x=0, y=0, z=0, yaw=float('nan'), speed=0.6, frame_id='aruco_map', auto_arm=False, tolerance=0.2):
     navigate(x=x, y=y, z=z, yaw=yaw, speed=speed, frame_id=frame_id, auto_arm=auto_arm)
     if auto_arm:
@@ -24,12 +25,12 @@ def navigate_wait(x=0, y=0, z=0, yaw=float('nan'), speed=0.6, frame_id='aruco_ma
             break
         rospy.sleep(0.2)
 
-def land_wait():
+def land_wait():  # функция писадки с ожиданием
     land()
     while get_telemetry().armed:
         rospy.sleep(0.2)
     
-if len(sys.argv) == 2 and sys.argv[1]== '--land':
+if len(sys.argv) == 2 and sys.argv[1]== '--land': 
     land_wait()
     print('[LAND]')
     exit()
