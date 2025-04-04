@@ -1,4 +1,4 @@
-
+# подключение дополнительных модулей python
 import rospy
 import cv2
 import sys
