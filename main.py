@@ -89,7 +89,7 @@ def handle_land():
         if script is not None:
             script.kill()
             script = None
-        subprocess.Popen(['python3', 'ros_script.py', '--land'])
+        subprocess.Popen(['python3', 'bottom.py', '--land'])
     return jsonify(button_state)
 
 # Обработка кнопки "KILL SWITCH"
@@ -99,7 +99,7 @@ def handle_kill():
     if script is not None:
         script.kill()
         script = None
-    subprocess.Popen(['python3', 'ros_script.py', '--kill'])
+    subprocess.Popen(['python3', 'bottom.py', '--kill'])
     button_state["stop"] = False
     button_state["start"] = False
     button_state["home"] = False
@@ -110,7 +110,7 @@ def handle_kill():
 @app.route('/api/stop', methods=['POST'])
 def handle_stop():
     global script
-    subprocess.Popen(['python3', 'ros_script.py', '--stop'])
+    subprocess.Popen(['python3', 'bottom.py', '--stop'])
     button_state["stop"] = False
     button_state["start"] = True
     button_state["home"] = True
@@ -121,7 +121,7 @@ def handle_stop():
 @app.route('/api/home', methods=['POST'])
 def handle_home():
     global script
-    subprocess.Popen(['python3', 'ros_script.py', '--home'])
+    subprocess.Popen(['python3', 'bottom.py', '--home'])
     button_state["stop"] = True
     button_state["start"] = True
     button_state["home"] = False
@@ -130,6 +130,6 @@ def handle_home():
 
 if __name__ == "__main__":
     # Запуск сервера через localhost на порте 8888
-    print("Сервер запущен на http://192.168.50.120:8888/")
-    app.run(host='192.168.50.120', port=8888, debug=False)
+    print("Сервер запущен на http://192.168.195.29:8888/")
+    app.run(host='192.168.195.29', port=8888, debug=False)
 
