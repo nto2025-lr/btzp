@@ -32,6 +32,7 @@ https://github.com/nto2025-lr/btzp/tree/main
 [`main.py`](https://github.com/nto2025-lr/btzp/blob/main/main.py) - отвечает за инициализацию сайта и обработку кнопок
 
 [`ros_script.py`](https://github.com/nto2025-lr/btzp/blob/main/ros_script.py) - отвечает за всю работу с дроном
+
 [`bottom.py`](https://github.com/nto2025-lr/btzp/blob/main/bottom.py) - отвечает за функции кнопок
 
 # Конструкторское решение
